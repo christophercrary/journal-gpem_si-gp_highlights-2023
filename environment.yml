@@ -1,7 +1,7 @@
-name: conference-eurogp-2023
+name: journal-gpem_si-gp_highlights-2023
 channels:
   - conda-forge
-  - defaults
+  # - defaults
 dependencies:
   - bash=5.0.*
   - boost=1.76.*
@@ -21,8 +21,17 @@ dependencies:
   - jemalloc=5.2.*
   - make=4.3
   - openlibm=0.8.*
+  - pathos=0.3.*
   - pkgconfig=1.5.*
   - pip=22.3.*
   - pybind11=2.6.*
   - python=3.9.*
+  - scikit-learn=1.2.*
+  - scipy=1.11.*
   - taskflow=3.1.*
+  - pip:
+    - deap==1.4.*
+    - ipykernel==6.22.*
+    - Markdown==3.4.*
+    - matplotlib==3.7.*
+    - xlsxwriter==3.0.*

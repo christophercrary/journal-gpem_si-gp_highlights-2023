@@ -4,58 +4,58 @@ It is expected that all function inputs will be numeric.
 """
 import numpy as np
 
-def add(x1, x2):
+def add(X1, X2):
     """Return result of addition."""
-    res = np.add(x1, x2)
-    if np.isinf(res) or np.isnan(res):
-        res = np.inf
+    res = X1 + X2
+    res[~np.isfinite(res)] = np.inf
     return res
 
-def aq(x1, x2):
+def aq(X1, X2):
     """Return result of analytical quotient.
     
     The analytical quotient is as defined by Ni et al. in their paper 
     'The use of an analytic quotient operator in genetic programming':  
-    `aq(x1, x2) = (x1)/(sqrt(1+x2^(2)))`.
+    `aq(x1, x2) = (x1) / (sqrt(1 + x2 ** (2)))`.
     """
-    res = np.divide(x1, np.sqrt(np.add(1, np.square(x2))))
-    if np.isinf(res) or np.isnan(res):
-        res = np.inf
+    res = X1 / np.sqrt(1 + X2 ** 2)
+    res[~np.isfinite(res)] = np.inf
     return res
 
-def exp(x): 
+def exp(X): 
     """Return result of exponentiation, base `e`."""
-    return np.exp(x)
+    return np.exp(X)
 
-def log(x):
-    """Return result of protected logarithm, base `e`."""
-    return np.log(np.abs(x)) if x != 0 else 0
+def log(X):
+    """Return result of protected logarithm, base `e`.
+    
+    The argument of the logarithm is made positive.
+    """
+    res = np.log(np.abs(X))
+    res[res == -np.inf] = 0
+    return res
 
-def mul(x1, x2):
+def mul(X1, X2):
     """Return result of multiplication."""
-    res = np.multiply(x1, x2)
-    if np.isinf(res) or np.isnan(res):
-        res = np.inf
+    res = X1 * X2
+    res[~np.isfinite(res)] = np.inf
     return res
 
-def sin(x):
+def sin(X):
     """Return result of sine."""
-    res = np.sin(x)
-    if np.isnan(res):
-        res = np.inf
+    res = np.sin(X)
+    res[~np.isfinite(res)] = np.inf
     return res
 
-def sqrt(x):
+def sqrt(X):
     """Return result of protected square root."""
-    return np.sqrt(np.abs(x))
+    return np.sqrt(np.abs(X))
 
-def sub(x1, x2):
+def sub(X1, X2):
     """Return result of subtraction."""
-    res = np.subtract(x1, x2)
-    if np.isinf(res) or np.isnan(res):
-        res = np.inf
+    res = X1 - X2
+    res[~np.isfinite(res)] = np.inf
     return res
 
-def tanh(x):
+def tanh(X):
     """Return result of hyperbolic tangent."""
-    return np.tanh(x)
+    return np.tanh(X)

@@ -5,12 +5,15 @@ import pickle
 import timeit
 import sys
 
-import deap.gp
+import numpy as np
 from pathos.pools import ProcessPool
 from sklearn.metrics import mean_squared_error
 
 # sys.path.insert(1, 'experiment/tools/setup/')
 sys.path.insert(1, '../setup/')
+
+import deap_gp
+
 from gp.contexts.symbolic_regression.primitive_sets import \
     nicolau_a, nicolau_b, nicolau_c
 
@@ -20,18 +23,22 @@ root_dir = f'{os.getcwd()}/../../results/programs'
 
 ########################################################################
 
+@np.errstate(all='ignore')
 def evaluate(primitive_set, trees, X, t, fitness):
     """Return list of fitness scores for programs.
     
     Root-mean square error is used as the fitness function.
     """
+    # Transposed input matrix.
+    X_ = np.transpose(X)
+
     def evaluate_(tree):
         try:
             # Transform `PrimitiveTree` object into a callable function.
-            program = deap.gp.compile(tree, primitive_set)
+            program = deap_gp.compile(tree, primitive_set)
 
             # Calculate program outputs.
-            y = tuple(program(*X_) for X_ in X)
+            y = program(*X_)
 
             # Calculate and return fitness.
             return math.sqrt(mean_squared_error(t, y))
@@ -40,6 +47,7 @@ def evaluate(primitive_set, trees, X, t, fitness):
 
     # Calculate fitness scores for the set of trees in parallel.
     fitness.extend(ProcessPool().map(evaluate_, trees))
+    # fitness.extend([evaluate_(tree) for tree in trees])
 
 ########################################################################
 
@@ -61,7 +69,7 @@ n_bins = 32
 n_programs = 512
 
 # Number of times in which experiments are run.
-n_runs = 1
+n_runs = 11
 
 # Runtimes for programs within each bin, for each number 
 # of fitness cases, for each function set.
@@ -88,7 +96,7 @@ for name, ps in primitive_sets.items():
         programs = f.readlines()
 
     # Primitive set object for DEAP tool.
-    primitive_set = deap.gp.PrimitiveSet("main", len(ps.variables), prefix="v")
+    primitive_set = deap_gp.PrimitiveSet("main", len(ps.variables), prefix="v")
 
     # Add functions to primitive set.
     for name_, f in ps.functions.items():
@@ -112,7 +120,7 @@ for name, ps in primitive_sets.items():
                 f'cases...')
 
             # `PrimitiveTree` objects for size bin `j + 1`.
-            trees = [deap.gp.PrimitiveTree.from_string(p, primitive_set) for 
+            trees = [deap_gp.PrimitiveTree.from_string(p, primitive_set) for 
                 p in programs[n_programs * (j) : n_programs * (j + 1)]]
 
             # Raw runtimes after running the `evaluate`
