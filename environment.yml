@@ -1,0 +1,28 @@
+name: conference-eurogp-2023
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bash=5.0.*
+  - boost=1.76.*
+  - ceres-solver=2.0.*
+  - cmake=3.22.*
+  - cxxopts=2.2.*
+  - cudatoolkit=11.2.*
+  - cudnn=8.1.*
+  - doctest=2.4.*
+  - eigen=3.4.*
+  - fmt=7.1.*  
+  - gcc=11.2.*
+  - git=2.34.*
+  - gsl=2.7
+  - gxx=11.2.*
+  - ipykernel=6.6.*
+  - jemalloc=5.2.*
+  - make=4.3
+  - openlibm=0.8.*
+  - pkgconfig=1.5.*
+  - pip=22.3.*
+  - pybind11=2.6.*
+  - python=3.9.*
+  - taskflow=3.1.*

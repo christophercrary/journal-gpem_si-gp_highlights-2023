@@ -1,0 +1,28 @@
+# Generic.
+experiment/tools/setup/examples
+experiment/tools/operon/operon
+experiment/tools/tensorgp/tensorgp
+experiment/results/programs
+**.pkl
+!results*.pkl
+**.tar.gz
+**/build
+**/runs
+**.log
+**/.nfs*
+
+# Python.
+**/__pycache__
+
+# Jupyter.
+**/.ipynb_checkpoints
+**/stats-**.ipynb
+
+# FPGA.
+*.mif
+
+# MacOS.
+**/.DS_Store
+
+# VSCode
+**.vscode
