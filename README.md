@@ -1,5 +1,5 @@
 # GP Evaluation Profiling
-This repository provides a means to profile (i.e., benchmark) the evaluation methodologies given by some genetic programming (GP) tools. The evolutionary mechanisms provided by the GP tools are *not* included when profiling——only mechanisms for calculating "fitness."
+This repository provides a means to profile (i.e., benchmark) the evaluation methodologies given by some genetic programming (GP) tools. The evolutionary mechanisms provided by the GP tools are *not* included when profiling, only mechanisms for calculating "fitness."
 
 This repository was created for the journal paper "Using FPGA Devices to Accelerate the Evaluation Phase of Tree-Based Genetic Programming: An Extended Analysis", which was submitted to the Genetic Programming and Evolvable Machines (GPEM) Journal Special Issue titled "Highlights of Genetic Programming 2023 Events." This paper compared the evaluation performance of an initial FPGA-based GP hardware accelerator with that of the GP software tools *DEAP* (version 1.3), *TensorGP* (Git revision 09e6d04), and *Operon* (Git revision 9e7ee4e).
 
@@ -28,7 +28,7 @@ After the `run.sh` script fully executes, to view some relevant statistics, run 
 
 ## Installation instructions
 
-The following has been verified via CentOS 7. It is likely that other Linux distributions are supported, but it is unlikely that Windows and MacOS operating systems are immediately supported.
+The following has been verified via RHEL 8.8. It is likely that other Linux distributions are supported, but it is unlikely that Windows and MacOS operating systems are immediately supported.
 
 ### Prerequisites
 - Ensure that some Conda package management system (e.g., [Miniconda](https://docs.conda.io/en/latest/miniconda.html)) is installed on the relevant machine.
