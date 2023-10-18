@@ -1,5 +1,8 @@
 """GP primitive sets."""
 from collections import OrderedDict
+import sys
+
+sys.path.insert(1, '../setup/')
 
 from . import constants as c
 from . import functions as f
