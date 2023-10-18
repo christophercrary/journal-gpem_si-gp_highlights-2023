@@ -6,13 +6,15 @@ import timeit
 import sys
 
 import numpy as np
+from scoop import futures
 from sklearn.metrics import mean_squared_error
 
-import deap.gp
+import deap_gp
 
 # sys.path.insert(1, 'experiment/tools/setup/')
 sys.path.insert(1, '../setup/')
-from primitive_sets import nicolau_a, nicolau_b, nicolau_c
+from gp.contexts.symbolic_regression.primitive_sets import \
+    nicolau_a, nicolau_b, nicolau_c
 
 # Useful directory path.
 # root_dir = f'{os.getcwd()}/experiment/results/programs'
@@ -31,11 +33,18 @@ def evaluate_(tree, primitive_set, nfc, n_iv):
     inputs_ = inputs[:nfc, :n_iv]
     targets_ = targets[:nfc]
 
+    # Transposed input matrix.
+    inputs_ = np.transpose(inputs_)
+
     # Transform `PrimitiveTree` object into a callable function.
-    program = deap.gp.compile(tree, primitive_set)
+    program = deap_gp.compile(tree, primitive_set)
 
     # Calculate program outputs.
-    y = tuple([program(*input_) for input_ in inputs_])
+    y = program(*inputs_)
+
+    if y.shape == (1,):
+        # All terminals were constant; duplicate single final result.
+        y = np.repeat(y, nfc)
     
     try:
         # Calculate and return fitness.
@@ -49,9 +58,11 @@ def evaluate(trees, primitive_set, nfc, n_iv, fitness):
     Root-mean square error is used as the fitness function.
     """
     fn = partial(evaluate_, primitive_set=primitive_set, nfc=nfc, n_iv=n_iv)
-    # Calculate fitness scores for the set of trees.
-    outputs = [fn(tree) for tree in trees]
+    # Calculate fitness scores for the set of trees in parallel.
+    outputs = list(futures.map(fn, trees))
+    # outputs = [fn(tree) for tree in trees]
     fitness[:] = outputs[:]
+    # fitness.extend([fn(tree) for tree in trees])
 
 if __name__ == '__main__':
 
@@ -94,7 +105,7 @@ if __name__ == '__main__':
             programs = f.readlines()
 
         # Primitive set object for DEAP tool.
-        primitive_set = deap.gp.PrimitiveSet(
+        primitive_set = deap_gp.PrimitiveSet(
             "main_", len(ps.variables), prefix="v")
 
         # Add functions to primitive set.
@@ -116,7 +127,7 @@ if __name__ == '__main__':
                       f'fitness cases...')
 
                 # `PrimitiveTree` objects for size bin `j + 1`.
-                trees = [deap.gp.PrimitiveTree.from_string(p, primitive_set) 
+                trees = [deap_gp.PrimitiveTree.from_string(p, primitive_set) 
                     for p in programs[n_programs * (j) : n_programs * (j + 1)]]
 
                 # Raw runtimes after running the `evaluate`
@@ -127,15 +138,21 @@ if __name__ == '__main__':
                     r_ = timeit.timeit(
                         'evaluate(trees, primitive_set, nfc, '
                         '  len(ps.variables), fitnesses_)',
+                    # r_ = timeit.Timer(
+                    #     'evaluate(trees, primitive_set, nfc, '
+                    #     '  len(ps.variables), fitnesses_)',
+                        # '  fitnesses[name][i][j])',
+                        # globals=globals()).repeat(repeat=n_runs, number=1)
+                        # globals=globals()).repeat(repeat=1, number=1)
+                        # globals=globals()).timeit(number=1)
                         globals=globals(), number=1)
+                    # r.append(r_[0])
                     r.append(r_)
                 runtimes[-1][-1][j] = r
                 fitnesses[name][i][j][:] = fitnesses_[:]
 
             # Preserve fitness data.
-            with open(
-                f'{root_dir}/{name}/{nfc}/fitness_deap_regular.csv', 
-                    'w+') as f:
+            with open(f'{root_dir}/{name}/{nfc}/fitness.csv', 'w+') as f:
                 for j, fitness_bin in enumerate(fitnesses[name][i]):
                     for k, value in enumerate(fitness_bin):
                         f.write(f'{str(value)}')
@@ -145,6 +162,5 @@ if __name__ == '__main__':
                         f.write(f'\n')
 
     # Preserve results.
-    with open(
-        f'{root_dir}/../runtimes/deap/results_deap_regular.pkl', 'wb') as f:
+    with open(f'{root_dir}/../runtimes/deap/results.pkl', 'wb') as f:
         pickle.dump(runtimes, f)

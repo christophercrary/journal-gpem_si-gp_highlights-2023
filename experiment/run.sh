@@ -5,6 +5,10 @@ cd tools
 cd deap
 python profile.py
 
+# Profile DEAP (optimized).
+cd ../deap_optimized
+python profile.py
+
 # Profile TensorGP.
 cd ../tensorgp
 python profile.py
