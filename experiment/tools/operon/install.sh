@@ -33,6 +33,7 @@ SOURCE_DATE_EPOCH=`date +%s` cmake .. -DCMAKE_BUILD_TYPE=Release -DUSE_OPENLIBM=
 \cp ../../custom/parser.hpp ./_deps/infix_parser-src/include
 \cp ../../custom/sexpr.hpp ./_deps/infix_parser-src/src
 \cp ../../custom/evaluation.cpp ../test/performance
+\cp ../../custom/energy.py ./
 
 # Build custom Operon target.
 make -j operon-test

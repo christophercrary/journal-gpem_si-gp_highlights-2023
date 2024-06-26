@@ -1,7 +1,6 @@
 name: journal-gpem_si-gp_highlights-2023
 channels:
   - conda-forge
-  # - defaults
 dependencies:
   - bash=5.0.*
   - boost=1.76.*

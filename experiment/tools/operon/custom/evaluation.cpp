@@ -211,5 +211,605 @@ namespace Test {
 
     }
 
+    TEST_CASE("A10")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_a",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("A100")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_a",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("A1000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_a",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {1000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("A10000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_a",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("A100000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_a",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("B10")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_b",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("B100")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_b",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("B1000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_b",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {1000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("B10000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_b",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("B100000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_b",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("C10")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_c",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("C100")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_c",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("C1000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_c",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {1000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("C10000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_c",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {10000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
+    TEST_CASE("C100000")
+    {
+        const int n_primitive_sets = 1;
+
+        std::string primitive_sets[n_primitive_sets] = {"nicolau_c",};
+
+        const int n_fitness_case_amounts = 1;
+
+        int n_fitness_cases[n_fitness_case_amounts] = {100000,};
+
+        const int n_bins = 32;
+
+        const int n_programs = 512;
+
+        const int n_runs = 1;
+
+        std::cout << "\n\nOperon build information: " << Operon::Version() <<
+            "\n\n";
+
+        for(int i = 0; i < n_primitive_sets; i++)
+        {
+            // For each function set...
+
+            std::ofstream results_file;
+            results_file.open("../../../../results/runtimes/operon/" + 
+                primitive_sets[i] + ".csv");
+            
+            for(int j = 0; j < n_fitness_case_amounts; j++)
+            {
+                get_results(primitive_sets[i], n_fitness_cases[j],
+                    n_bins, n_programs, n_runs, results_file);    
+            }
+
+            results_file.close();
+            results_file.clear();
+
+        }
+
+    }
+
 } // namespace Test
 } // namespace Operon
